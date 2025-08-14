@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matthew Adamo | Official Website</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Lora:ital,wght@0,400;1,400&display=swap');;
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap');
 
         /* --- CSS Variables for Colours --- */
         :root {
@@ -51,8 +51,9 @@
 
         h1 { 
             font-size: 4.2rem;
-            white-space: nowrap; /* Prevents name from wrapping */
-        }
+            max-width: 550px;
+        white-space: nowrap; /* Prevents text from wrapping */
+	}
         h2 { 
             font-size: 3rem;
             margin-bottom: 2rem; 
@@ -128,21 +129,22 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 80px 2rem 40px 2rem;
+            padding: 80px 0 40px 0;
             margin: 0;
         }
 
         .hero-container {
             display: flex;
-            flex-direction: column; /* This stacks the items vertically */
-            align-items: center; /* This centers the items horizontally */
-            gap: 2rem; /* This creates space between the image and text block */
+            align-items: center;
+            gap: 4rem;
             width: 100%;
+            max-width: 1100px;
+            padding: 0 2rem;
         }
         
         .hero-image-col {
-            width: 100%;
-            max-width: 800px; /* Controls the maximum size of the image */
+            flex-basis: 40%;
+            min-width: 300px;
         }
 
         .hero-image-col img {
@@ -153,17 +155,18 @@
         }
 
         .hero-text-col {
+            flex-basis: 60%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            align-items: center; /* This aligns all items to the center */
+            text-align: center; /* This centers the text within each item */
         }
 
         .hero-text-col p {
             font-size: 1.3rem;
             font-weight: 300;
             font-family: 'Montserrat', sans-serif;
-            max-width: 550px; /* Constrains line length for readability */
+            max-width: 500px;
         }
 
         .btn-hero {
@@ -212,15 +215,20 @@
         /* --- 2025 Mobile Responsiveness Standards --- */
         @media (max-width: 900px) {
             h1 { font-size: 3.5rem; }
+            .hero-container { gap: 2rem; }
         }
         
         @media (max-width: 768px) {
             h2 { font-size: 2.2rem; text-align: center; }
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
             #main-nav { justify-content: center; height: 70px; }
             #hero { padding-top: 70px; }
         }
         @media (max-width: 480px) {
-            h1 { font-size: 2.8rem; white-space: normal; /* Allow name to wrap on very small screens */ }
+            h1 { font-size: 2.8rem; }
             h2 { font-size: 1.8rem; letter-spacing: 1px; }
         }
 
@@ -244,7 +252,7 @@
         <section id="hero">
             <div class="hero-container">
                 <div class="hero-image-col">
-                    <img src="profile-v2.png" alt="A vertical portrait of the poet, Matthew Adamo.">
+                    <img src="https://placehold.co/400x600" alt="A vertical portrait of the poet, Matthew Adamo.">
                 </div>
                 <div class="hero-text-col">
                     <h1>Matthew Adamo</h1>
