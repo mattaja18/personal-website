@@ -19,10 +19,7 @@
             --card-background: #1a1923;
             
             /* Typography */
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-            --font-serif: 'Merriweather', serif;
+            --font-serif: 'Georgia', serif;
             --font-sans: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
             /* Spacing System */
@@ -67,11 +64,7 @@
             display: block;
         }
         
-        h1, h2, h3 {
-            font-family: var(--font-serif);
-            line-height: 1.2;
-            color: var(--secondary-color);
-        }
+        /* REFACTOR: Removed global h1, h2, h3 styles. They are now defined within their components. */
 
         p + p {
             margin-block-start: var(--space-m);
@@ -90,12 +83,6 @@
             padding-block: var(--space-xl);
         }
         
-        .content-section h2 {
-            font-size: clamp(2.5rem, 4vw + 1rem, 3rem);
-            margin-block-end: var(--space-m);
-            text-align: center;
-        }
-
         /* ==========================================================================
            5. COMPONENTS
            ========================================================================== */
@@ -110,6 +97,7 @@
             text-align: center;
             padding: var(--space-l);
             position: relative;
+	padding-block-end: 6rem;
         }
 
         .hero-header .profile-image {
@@ -122,6 +110,9 @@
         }
 
         .hero-header h1 {
+            font-family: var(--font-serif);
+            color: var(--secondary-color);
+            line-height: 1.2;
             font-size: clamp(3rem, 5vw + 1rem, 4rem);
             margin-block-end: var(--space-s);
         }
@@ -133,6 +124,16 @@
             max-width: 600px;
         }
         
+        /* Content Sections */
+        .content-section h2 {
+            font-family: var(--font-serif);
+            color: var(--secondary-color);
+            line-height: 1.2;
+            font-size: clamp(2.5rem, 4vw + 1rem, 3rem);
+            margin-block-end: var(--space-m);
+            text-align: center;
+        }
+
         /* Call-to-Action Button */
         .cta-button {
             position: absolute;
@@ -174,6 +175,9 @@
         }
         
         .card h3 {
+            font-family: var(--font-serif);
+            color: var(--secondary-color);
+            line-height: 1.2;
             font-size: 1.5rem;
             margin-block-end: var(--space-s);
         }
@@ -205,7 +209,7 @@
 <body>
 
     <header class="hero-header">
-        <img src="profile-v2.png" alt="A placeholder headshot for the poet Matthew Adamo." class="profile-image">
+        <img src="https://placehold.co/300x300/F5282B/FFFFFF?text=Poet" alt="A placeholder headshot for the poet Matthew Adamo." class="profile-image">
         <h1>Matthew Adamo</h1>
         <p class="subtitle">Contemporary writer and poet, associated with Verse First.<br>New works to be released in 2026.</p>
         <a href="#about" class="cta-button" aria-label="Scroll to about section">&#8595;</a>
