@@ -3,23 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matthew Adamo | Official Website</title>
+    <title>Matthew Adamo | Writer & Poet</title>
+    <meta name="description" content="The official website for contemporary writer and poet Matthew Adamo.">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital,wght@0,400;1,400&display=swap');
-
-        /* --- CSS Variables for Colours --- */
+        /* ==========================================================================
+           1. VARIABLES & THEME
+           ========================================================================== */
         :root {
-            --primary: #4c5478;
-            --secondary: #D1494E;
-            --tertiary: #e5ebea;
-            --text-light: #f0f0f0;
+            /* Colours */
+            --primary-color: #090812;
+            --secondary-color: #F5282B;
+            --text-color: #FFFFFF;
+            --tertiary-color: #82c3e8;
+            --card-background: #1a1923;
+            
+            /* Typography */
+            --font-serif: 'Georgia', serif;
+            --font-sans: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+            /* Spacing System */
+            --space-s: 1rem;
+            --space-m: 1.5rem;
+            --space-l: 2rem;
+            --space-xl: 3rem;
         }
 
-        /* --- General & Reset --- */
-        * {
+        /* ==========================================================================
+           2. ANIMATIONS
+           ========================================================================== */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* ==========================================================================
+           3. GLOBAL STYLES & RESET
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -27,275 +52,195 @@
         }
 
         body {
-            font-family: 'Lora', serif;
-            background-color: var(--primary);
-            color: var(--text-light);
-            line-height: 1.7;
-            font-size: 17px;
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            font-size: 1.15rem;
         }
 
-        /* --- Accessibility --- */
-        a:focus-visible, .btn-hero:focus-visible {
-            outline: 3px solid var(--secondary);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        /* --- Typography --- */
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--secondary);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 { 
-            font-size: 4.2rem;
-            max-width: 550px;
-        white-space: nowrap; /* Prevents text from wrapping */
-	}
-        h2 { 
-            font-size: 3rem;
-            margin-bottom: 2rem; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        } 
-        h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            color: var(--secondary);
-            text-decoration: none;
-        }
-        
-        /* --- Layout & Containers --- */
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0 2rem;
-            overflow: hidden;
-        }
-
-        section {
-            padding: 2em 0;
-            margin: 2em 0;
-        }
-
-        /* --- Navigation --- */
-        #main-nav {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            height: 80px;
-            background-color: rgba(76, 84, 120, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 10;
-        }
-
-        #main-nav ul { list-style: none; display: flex; }
-        #main-nav ul li a {
-            padding: 1rem 1.5rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        #main-nav ul li a:hover { color: var(--text-light); }
-        #main-nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 2px;
-            bottom: 10px;
-            left: 0;
-            background-color: var(--secondary);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
-        }
-        #main-nav ul li a:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-
-        /* --- Hero Section --- */
-        #hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 80px 0 40px 0;
-            margin: 0;
-        }
-
-        .hero-container {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            width: 100%;
-            max-width: 1100px;
-            padding: 0 2rem;
-        }
-        
-        .hero-image-col {
-            flex-basis: 40%;
-            min-width: 300px;
-        }
-
-        .hero-image-col img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
+        img {
+            max-width: 100%;
             display: block;
         }
+        
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            color: var(--secondary-color);
+        }
 
-        .hero-text-col {
-            flex-basis: 60%;
+        p + p {
+            margin-block-start: var(--space-m);
+        }
+
+        /* ==========================================================================
+           4. LAYOUT & UTILITIES
+           ========================================================================== */
+        .container {
+            max-width: 800px;
+            margin-inline: auto;
+            padding: var(--space-s);
+        }
+
+        .content-section {
+            padding-block: var(--space-xl);
+        }
+        
+        .content-section h2 {
+            font-size: clamp(2.5rem, 4vw + 1rem, 3rem);
+            margin-block-end: var(--space-m);
+            text-align: center;
+        }
+
+        /* ==========================================================================
+           5. COMPONENTS
+           ========================================================================== */
+        
+        /* Hero Section */
+        .hero-header {
             display: flex;
             flex-direction: column;
-            align-items: center; /* This aligns all items to the center */
-            text-align: center; /* This centers the text within each item */
-        }
-
-        .hero-text-col p {
-            font-size: 1.3rem;
-            font-weight: 300;
-            font-family: 'Montserrat', sans-serif;
-            max-width: 500px;
-        }
-
-        .btn-hero {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.8rem 2.5rem;
-            background-color: var(--secondary);
-            color: var(--primary);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            border-radius: 50px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .btn-hero:hover {
-            transform: translateY(-3px);
-            background-color: var(--text-light);
-        }
-        
-        /* --- Honours Section --- */
-        .honours-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-        .honour-item {
-            background-color: var(--tertiary);
-            padding: 1.5rem 2rem;
-            border-left: 4px solid var(--secondary);
-        }
-        .honour-item p { margin: 0; color: var(--primary); }
-        .honour-item .competition {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .honour-item .poem-title {
-            font-style: italic;
-            color: var(--secondary);
-        }
-
-        /* --- Footer --- */
-        footer {
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: rgba(240, 240, 240, 0.6);
+            padding: var(--space-l);
+            position: relative;
         }
 
-        /* --- 2025 Mobile Responsiveness Standards --- */
-        @media (max-width: 900px) {
-            h1 { font-size: 3.5rem; }
-            .hero-container { gap: 2rem; }
+        .hero-header .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-block-end: var(--space-m);
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+        }
+
+        .hero-header h1 {
+            font-size: clamp(3rem, 5vw + 1rem, 4rem);
+            margin-block-end: var(--space-s);
+        }
+
+        .hero-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--tertiary-color);
+            margin-block-end: var(--space-l);
+            max-width: 600px;
         }
         
-        @media (max-width: 768px) {
-            h2 { font-size: 2.2rem; text-align: center; }
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            #main-nav { justify-content: center; height: 70px; }
-            #hero { padding-top: 70px; }
+        /* Call-to-Action Button */
+        .cta-button {
+            position: absolute;
+            bottom: var(--space-xl);
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
         }
-        @media (max-width: 480px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 1.8rem; letter-spacing: 1px; }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .cta-button {
+                animation: bounce 2s infinite;
+            }
         }
 
+        .cta-button:hover,
+        .cta-button:focus-visible {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        /* Reusable Card Component */
+        .card {
+            background-color: var(--card-background);
+            padding: var(--space-m);
+            margin-block-end: var(--space-s);
+            border-inline-start: 5px solid var(--secondary-color);
+            border-radius: 4px;
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-block-end: var(--space-s);
+        }
+
+        .card p {
+            color: var(--tertiary-color);
+            font-style: italic;
+        }
+        
+        /* Footer */
+        .site-footer {
+            padding: var(--space-l);
+            border-block-start: 1px solid var(--card-background);
+            text-align: center;
+            color: var(--tertiary-color);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================================
+           6. MEDIA QUERIES
+           ========================================================================== */
+        @media (min-width: 768px) {
+            .container {
+                padding: var(--space-l);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <nav id="main-nav">
-            <div class="container">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#honours">Honours</a></li>
-                </ul>
-            </div>
-        </nav>
+    <header class="hero-header">
+        <img src="https://placehold.co/300x300/F5282B/FFFFFF?text=Poet" alt="A placeholder headshot for the poet Matthew Adamo." class="profile-image">
+        <h1>Matthew Adamo</h1>
+        <p class="subtitle">Contemporary writer and poet, associated with Verse First.<br>New works to be released in 2026.</p>
+        <a href="#about" class="cta-button" aria-label="Scroll to about section">&#8595;</a>
     </header>
 
-    <main>
-        <section id="hero">
-            <div class="hero-container">
-                <div class="hero-image-col">
-                    <img src="https://placehold.co/400x600" alt="A vertical portrait of the poet, Matthew Adamo.">
-                </div>
-                <div class="hero-text-col">
-                    <h1>Matthew Adamo</h1>
-                    <p>A contemporary writer and poet. Associated with Verse First. New works to be released in 2026.</p>
-                    <a href="#about" class="btn-hero">Find out more</a>
-                </div>
-            </div>
+    <main class="container">
+        
+        <section id="about" class="content-section" aria-labelledby="about-heading">
+            <h2 id="about-heading">About Me</h2>
+            <p>Having moved frequently during my childhood, including living abroad, I found my escape in the pages of books. This lifelong fascination with literature led me to study English Literature at the University of Sussex for both my undergraduate and master's degrees.</p>
+            <p>It was in 2017 that I began writing poetry seriously, a pursuit that eventually connected me with the Verse First poetry group.</p>
+            <p>My debut novel, a futuristic thriller exploring themes of subterfuge, power, and payback, is due for release in 2026.</p>
         </section>
 
-        <section id="about">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>Having moved frequently during my childhood, including living abroad, I found my escape in the pages of books. This lifelong fascination with literature led me to study English Literature at the University of Sussex for both my undergraduate and master's degrees. It was in 2017 that I began writing poetry seriously, a pursuit that eventually connected me with the Verse First poetry group. </p>
-                <p>My debut novel, a futuristic thriller exploring themes of subterfuge, power, and payback, is due for release in 2026.</p>
-            </div>
-        </section>
+        <section id="honours" class="content-section" aria-labelledby="honours-heading">
+            <h2 id="honours-heading">Writing Honours</h2>
+            
+            <article class="card">
+                <h3>Poetry Kit Poetry Competition 2019</h3>
+                <p>Shortlisted — The Walk at Kinsbury</p>
+            </article>
+            
+            <article class="card">
+                <h3>Earlyworks Press Poetry Competition 2018</h3>
+                <p>Shortlisted — The Sword You Raised</p>
+            </article>
+            
+            <article class="card">
+                <h3>Earlyworks Press Poetry Competition 2017</h3>
+                <p>Shortlisted — The Old Tower</p>
+            </article>
 
-        <section id="honours">
-            <div class="container">
-                <h2>Writing Honours</h2>
-                <div class="honours-grid">
-                    <div class="honour-item">
-                        <p class="competition">Poetry Kit Poetry Competition 2019</p>
-                        <p>Shortlisted &mdash; <span class="poem-title">The Walk at Kinsbury</span></p>
-                    </div>
-                    <div class="honour-item">
-                        <p class="competition">Earlyworks Press Poetry Competition 2018</p>
-                        <p>Shortlisted &mdash; <span class="poem-title">The Sword You Raised</span></p>
-                    </div>
-                    <div class="honour-item">
-                        <p class="competition">Earlyworks Press Poetry Competition 2017</p>
-                        <p>Shortlisted &mdash; <span class="poem-title">The Old Tower</span></p>
-                    </div>
-                </div>
-            </div>
         </section>
-
+        
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Matthew Adamo. All Rights Reserved.</p>
-        </div>
+    
+    <footer class="site-footer">
+        <p>&copy; 2025 Matthew Adamo. All rights reserved.</p>
     </footer>
 
 </body>
